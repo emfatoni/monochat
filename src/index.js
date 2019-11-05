@@ -6,9 +6,30 @@ class ChatWrapper extends React.Component{
 	render(){
 		return (
 			<div className="speech-wrapper">
-				<BubbleChat />
-				<BubbleChatAlt />
+				<HeaderChat />
+				<div class="container" id="style-4">
+					<BubbleChat />
+					<BubbleChatAlt />
+					<BubbleChat />
+					<BubbleChat />
+					<BubbleChat />
+					<BubbleChatAlt />
+					<BubbleChatAlt />
+					<BubbleChatAlt />
+				</div>
 				<FormChat />
+			</div>
+		);
+	}
+}
+
+
+class HeaderChat extends React.Component{
+	render(){
+		return(
+			<div className="header">
+				<img src="https://www.trickscity.com/wp-content/uploads/2018/09/IMG_0976.jpg" className="profpic" />
+				<p class="name" ><b>No Name</b></p>
 			</div>
 		);
 	}
@@ -19,7 +40,7 @@ class BubbleChat extends React.Component{
 		return(
 			<div className="bubble">
 				<TextChat />
-				<div className="bubble-arrow"></div>
+				
 			</div>
 		);
 	}
@@ -30,7 +51,7 @@ class BubbleChatAlt extends React.Component{
 		return(
 			<div className="bubble alt">
 				<TextChat />
-				<div className="bubble-arrow alt"></div>
+				
 			</div>
 		);
 	}

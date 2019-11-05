@@ -1,23 +1,49 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: url("http://forums.crackberry.com/attachments/blackberry-10-wallpapers-f308/137432d1361639896t-z10-wallpaper-set-z10-music.jpg");
 }
 
 .speech-wrapper {
-  padding: 30px 40px;
   margin: auto;
   width: 500px;
-  height: 550px;
+  height: 620px;
   position: relative;
+  background: url("http://forums.crackberry.com/attachments/blackberry-10-wallpapers-f308/137432d1361639896t-z10-wallpaper-set-z10-music.jpg");
+
+}
+.speech-wrapper .header{
+  height: 70px;
+  background-color: #075E54;
+  position: relative;
+}
+.speech-wrapper .header .profpic{
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 50px;
+  float: left;
+}
+.speech-wrapper .header .name{
+  color: white;
+  margin-top: 26px;
+  margin-left: 10px;
+  float: left;
 }
 .speech-wrapper > form{
   position: absolute;
   width: 500px;
   bottom: 0;
+  padding: 0 5px 5px 5px;
+}
+.speech-wrapper .container {
+  height: 540px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
 }
 .speech-wrapper .addform {
-  width: 100%;
+  width: 456px;
   border-radius: 15px;
   padding: 10px; 
 }
@@ -29,10 +55,10 @@ body {
   border-radius: 4px;
   box-shadow: 2px 8px 5px #000;
   position: relative;
-  margin: 0 0 25px;
+  margin: 0 0 20px 12px;
 }
 .speech-wrapper .bubble.alt {
-  margin: 0 0 0 60px;
+  margin: 0 0 20px 238px;
 }
 .speech-wrapper .bubble .txt {
   padding: 8px 55px 8px 14px;
@@ -87,4 +113,22 @@ body {
 }
 .speech-wrapper .bubble .bubble-arrow.alt:after {
   transform: rotate(45deg) scaleY(-1);
+}
+
+
+#style-4::-webkit-scrollbar-track
+{  
+  background-color: #0E0F25;
+  border-radius: 5px;
+}
+
+#style-4::-webkit-scrollbar
+{
+  width: 5px;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+  background-color: #313658;
+  border-radius: 5px;
 }
