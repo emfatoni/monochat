@@ -37,7 +37,8 @@ body {
   padding: 0 5px 5px 5px;
 }
 .speech-wrapper .container {
-  height: 540px;
+  padding-top: 5px;
+  height: 505px;
   overflow-x: hidden;
   overflow-y: scroll;
   
