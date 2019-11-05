@@ -9,7 +9,7 @@ class ChatWrapper extends React.Component{
 		this.state = {
 			chatList: [],
 			refresh: true,
-			name: 'Abdul Rokhman'
+			name: 'Anggoro Islam'
 		}
 
 		this.refreshChat = this.refreshChat.bind(this);
@@ -62,7 +62,7 @@ class HeaderChat extends React.Component{
 	render(){
 		return(
 			<div className="header">
-				<img src="https://www.trickscity.com/wp-content/uploads/2018/09/IMG_0976.jpg" className="profpic" alt="profpic" />
+				<img src={require('./profpic/'+this.props.him+'.PNG')} className="profpic" alt={this.props.him} />
 				<p className="name" ><b>{this.props.him}</b></p>
 			</div>
 		);
@@ -139,7 +139,9 @@ class FormChat extends React.Component{
 				isAlt: true
 			};
 
-			this.props.chats.push(aChat);
+			if(this.state.message !== ''){
+				this.props.chats.push(aChat);	
+			}
 
 			this.setState({
 				message: ''
@@ -170,7 +172,9 @@ class FormChat extends React.Component{
 			isAlt: false
 		};
 
-		this.props.chats.push(aChat);
+		if(this.state.message !== ''){
+			this.props.chats.push(aChat);	
+		}
 
 		this.setState({
 			message: ''
@@ -182,7 +186,7 @@ class FormChat extends React.Component{
 	render(){
 		return(
 			<form onSubmit={this.addChat} >
-				<input id="messageField" className="addform" type="text" placeholder="Type a message" onChange={this.fillMsg} onKeyDown={this.addChatAlt} value={this.state.message} />
+				<input id="messageField" className="addform" type="text" placeholder="Type a message" onChange={this.fillMsg} onKeyDown={this.addChatAlt} value={this.state.message} autoComplete="off" />
 			</form>
 		);
 	}

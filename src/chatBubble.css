@@ -47,6 +47,7 @@ body {
   width: 456px;
   border-radius: 15px;
   padding: 10px; 
+  border: none;
 }
 .speech-wrapper .bubble {
   width: 250px;
