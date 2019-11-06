@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/monochat/static/css/main.3bb2b534.chunk.css",
+    "main.js": "/monochat/static/js/main.4505a507.chunk.js",
+    "main.js.map": "/monochat/static/js/main.4505a507.chunk.js.map",
+    "runtime-main.js": "/monochat/static/js/runtime-main.d5a964fc.js",
+    "runtime-main.js.map": "/monochat/static/js/runtime-main.d5a964fc.js.map",
+    "static/js/2.8a8a89eb.chunk.js": "/monochat/static/js/2.8a8a89eb.chunk.js",
+    "static/js/2.8a8a89eb.chunk.js.map": "/monochat/static/js/2.8a8a89eb.chunk.js.map",
+    "index.html": "/monochat/index.html",
+    "precache-manifest.ce6ec4070cb0c0f481046025acc31e8b.js": "/monochat/precache-manifest.ce6ec4070cb0c0f481046025acc31e8b.js",
+    "service-worker.js": "/monochat/service-worker.js",
+    "static/css/main.3bb2b534.chunk.css.map": "/monochat/static/css/main.3bb2b534.chunk.css.map",
+    "static/media/Abdul Rokhman.PNG": "/monochat/static/media/Abdul Rokhman.bc726f9c.PNG",
+    "static/media/Andi Iqbal.PNG": "/monochat/static/media/Andi Iqbal.616b1e0d.PNG",
+    "static/media/Angga Dian.PNG": "/monochat/static/media/Angga Dian.2ff68924.PNG",
+    "static/media/Anggoro Islam.PNG": "/monochat/static/media/Anggoro Islam.f4cf389a.PNG",
+    "static/media/Jevo Batara.PNG": "/monochat/static/media/Jevo Batara.2414cbb9.PNG",
+    "static/media/Rizky Adi.PNG": "/monochat/static/media/Rizky Adi.8d705b6a.PNG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5a964fc.js",
+    "static/js/2.8a8a89eb.chunk.js",
+    "static/css/main.3bb2b534.chunk.css",
+    "static/js/main.4505a507.chunk.js"
+  ]
+}
