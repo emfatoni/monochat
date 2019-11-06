@@ -23,6 +23,7 @@ body {
   margin-left: 10px;
   border-radius: 50px;
   float: left;
+  object-fit: cover;
 }
 .speech-wrapper .header .name{
   color: white;
@@ -47,7 +48,7 @@ body {
 }
 .speech-wrapper .container {
   padding-top: 5px;
-  height: 505px;
+  height: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
   
@@ -57,6 +58,11 @@ body {
   border-radius: 15px;
   padding: 10px; 
   border: none;
+}
+.speech-wrapper .formlabel {
+  color: white;
+  font-size: 11px;
+  padding-left: 5px;
 }
 .speech-wrapper .bubble {
   width: 250px;

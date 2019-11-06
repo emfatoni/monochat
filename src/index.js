@@ -8,8 +8,8 @@ class ChatWrapper extends React.Component{
 
 		this.state = {
 			chatList: [],
-			refresh: true,
-			name: 'luv:Angga Dian',
+			refresh: false,
+			name: '',
 			url: ''
 		}
 
@@ -144,8 +144,8 @@ class HomePage extends React.Component{
 					<p className="label">Siapa yang ingin kamu ajak bicara?</p>
 					<form onSubmit={this.submitName} >
 						<input type="text" placeholder="Nama" value={this.state.name} onChange={this.fillName} />
-						<input type="text" placeholder="URL foto" value={this.state.url} onChange={this.fillURL} />
-						<button type="submit" onClick={this.submitName} >Go</button>
+						<input type="text" placeholder="URL foto (opsional)" value={this.state.url} onChange={this.fillURL} />
+						<button type="submit" onClick={this.submitName} >Mulai</button>
 					</form>
 				</div>
 			</div>
@@ -173,7 +173,7 @@ class HeaderChat extends React.Component{
 			<div className="header">
 				<img src={url} className="profpic" alt={this.props.him} />
 				<p className="name" ><b>{this.props.realName}</b></p>
-				<span className="backlink"><a href="back" onClick={this.props.gotoHome} >Back</a></span>
+				<span className="backlink"><a href="back" onClick={this.props.gotoHome} >Kembali</a></span>
 			</div>
 		);
 	}
@@ -296,7 +296,8 @@ class FormChat extends React.Component{
 	render(){
 		return(
 			<form onSubmit={this.addChat} >
-				<input id="messageField" className="addform" type="text" placeholder="Type a message" onChange={this.fillMsg} onKeyDown={this.addChatAlt} value={this.state.message} autoComplete="off" />
+				<input id="messageField" className="addform" type="text" placeholder="Ketik sebuah pesan" onChange={this.fillMsg} onKeyDown={this.addChatAlt} value={this.state.message} autoComplete="off" />
+				<span className="formlabel">Tekan ENTER untuk berbicara sebagai kamu, tekan CTRL untuk berbicara sebagai lawan.</span>
 			</form>
 		);
 	}
