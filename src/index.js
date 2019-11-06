@@ -9,16 +9,38 @@ class ChatWrapper extends React.Component{
 		this.state = {
 			chatList: [],
 			refresh: true,
-			name: 'Anggoro Islam'
+			name: 'luv:Angga Dian',
+			url: ''
 		}
 
 		this.refreshChat = this.refreshChat.bind(this);
 		this.scrollToEnd = this.scrollToEnd.bind(this);
+		this.changeName = this.changeName.bind(this);
+		this.gotoHome = this.gotoHome.bind(this);
+	}
+
+	gotoHome(e){
+		e.preventDefault();
+
+		this.setState({
+			chatList: [],
+			refresh: false,
+			name: '',
+			url: ''
+		});
 	}
 
 	refreshChat(){
 		this.setState({
 			refresh: true
+		});
+	}
+
+	changeName(name, url){
+		this.setState({
+			name: name,
+			refresh: true,
+			url: url
 		});
 	}
 
@@ -29,7 +51,9 @@ class ChatWrapper extends React.Component{
 	}
 
 	componentDidUpdate(){
-		this.scrollToEnd();
+		if(this.state.refresh){
+			this.scrollToEnd();	
+		}
 	}
 
 	render(){
@@ -44,26 +68,112 @@ class ChatWrapper extends React.Component{
 				}
 			});
 
+			let realName = '';
+			const nameSplit = this.state.name.split(":");
+
+			if(nameSplit[0] === 'luv'){
+				realName = nameSplit[1];
+			}else{
+				realName = this.state.name;
+			}
+
 			return (
 				<div className="speech-wrapper">
-					<HeaderChat him={this.state.name} />
+					<HeaderChat him={this.state.name} url={this.state.url} gotoHome={this.gotoHome} realName={realName} />
 					<div className="container" id="style-4">
 						{bubbleList}
 					</div>
-					<FormChat chats={this.state.chatList} refreshChat={this.refreshChat} him={this.state.name} />
+					<FormChat chats={this.state.chatList} refreshChat={this.refreshChat} him={realName} />
 				</div>
 			);
+		}else{
+			return(
+				<HomePage changeName={this.changeName} />
+			);
 		}
+	}
+}
+
+class HomePage extends React.Component{
+	constructor(props){
+		super(props);
+
+		this.state = {
+			name: '',
+			url: ''
+		}
+
+		this.fillName = this.fillName.bind(this);
+		this.fillURL = this.fillURL.bind(this);
+		this.submitName = this.submitName.bind(this);
+	}
+
+	submitName(e){
+		e.preventDefault();
+
+		if(this.state.name !== ''){
+			this.props.changeName(this.state.name, this.state.url);	
+
+			this.setState({
+				name: '',
+				url: ''
+			});
+		}else{
+			alert("Nama tidak boleh kosong");
+		}
+	}
+
+	fillName(e){
+		this.setState({
+			name: e.target.value
+		});
+	}
+
+	fillURL(e){
+		this.setState({
+			url: e.target.value
+		});
+	}
+
+	render(){
+		return(
+			<div className="homepage">
+				<h1 className="title">MonoChat</h1>
+				<p className="description">WebApp untuk chat dengan diri sendiri<br /> atau pura-pura chat dengan orang lain.</p>
+				<div className="homeform">
+					<p className="label">Siapa yang ingin kamu ajak bicara?</p>
+					<form onSubmit={this.submitName} >
+						<input type="text" placeholder="Nama" value={this.state.name} onChange={this.fillName} />
+						<input type="text" placeholder="URL foto" value={this.state.url} onChange={this.fillURL} />
+						<button type="submit" onClick={this.submitName} >Go</button>
+					</form>
+				</div>
+			</div>
+		);
 	}
 }
 
 
 class HeaderChat extends React.Component{
 	render(){
+		let url = '';
+		const splitURL = this.props.him.split(":");
+
+		if(splitURL[0] === 'luv'){
+			url = require('./profpic/'+splitURL[1]+'.PNG');
+		}else{
+			if(this.props.url === ''){
+				url = 'https://exelord.com/ember-initials/images/default-d5f51047d8bd6327ec4a74361a7aae7f.jpg';
+			}else{
+				url = this.props.url;
+			}
+		}
+
 		return(
 			<div className="header">
-				<img src={require('./profpic/'+this.props.him+'.PNG')} className="profpic" alt={this.props.him} />
-				<p className="name" ><b>{this.props.him}</b></p>
+				<img src={url} className="profpic" alt={this.props.him} />
+				<p className="name" ><b>{this.props.realName}</b></p>
+				<span className="backlink"><a href="back" onClick={this.props.gotoHome} >Back</a></span>
 			</div>
 		);
 	}
